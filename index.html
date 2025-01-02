@@ -74,6 +74,15 @@
             <label for="distancia">Distancia</label>
             <input type="text" id="distancia" name="distancia" placeholder="Ejemplo: 15 km">
 
+            <label for="rutaRetornoDesde">Ruta de Retorno - Desde</label>
+            <input type="text" id="rutaRetornoDesde" name="rutaRetornoDesde" placeholder="Ejemplo: Parqueadero Mijito">
+
+            <label for="rutaRetornoHasta">Ruta de Retorno - Hasta</label>
+            <input type="text" id="rutaRetornoHasta" name="rutaRetornoHasta" placeholder="Ejemplo: Puerto Drummond">
+
+            <label for="distanciaRetorno">Distancia de Retorno</label>
+            <input type="text" id="distanciaRetorno" name="distanciaRetorno" placeholder="Ejemplo: 13.3 km">
+
             <label for="recomendaciones">Puntos Críticos y Recomendaciones de Seguridad Vial</label>
             <textarea id="recomendaciones" name="recomendaciones" rows="6" placeholder="Describa los puntos críticos y recomendaciones..."></textarea>
 
@@ -96,6 +105,9 @@
             const rutaDesde = document.getElementById("rutaDesde").value;
             const rutaHasta = document.getElementById("rutaHasta").value;
             const distancia = document.getElementById("distancia").value;
+            const rutaRetornoDesde = document.getElementById("rutaRetornoDesde").value;
+            const rutaRetornoHasta = document.getElementById("rutaRetornoHasta").value;
+            const distanciaRetorno = document.getElementById("distanciaRetorno").value;
             const recomendaciones = document.getElementById("recomendaciones").value;
 
             doc.text("REGISTRO DE PLANIFICACIÓN DE DESPLAZAMIENTOS", 10, 10);
@@ -107,8 +119,12 @@
             doc.text(`Desde: ${rutaDesde}`, 10, 70);
             doc.text(`Hasta: ${rutaHasta}`, 10, 80);
             doc.text(`Distancia: ${distancia}`, 10, 90);
-            doc.text("Puntos Críticos y Recomendaciones de Seguridad Vial:", 10, 100);
-            doc.text(recomendaciones, 10, 110);
+            doc.text("Ruta de Retorno:", 10, 100);
+            doc.text(`Desde: ${rutaRetornoDesde}`, 10, 110);
+            doc.text(`Hasta: ${rutaRetornoHasta}`, 10, 120);
+            doc.text(`Distancia: ${distanciaRetorno}`, 10, 130);
+            doc.text("Puntos Críticos y Recomendaciones de Seguridad Vial:", 10, 140);
+            doc.text(recomendaciones, 10, 150);
 
             doc.save("Planificacion_Desplazamientos.pdf");
         });
